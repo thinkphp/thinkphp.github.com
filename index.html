@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Welcome</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <style type="text/css">
+
+    html,body{background: #000;}
+
+    div#container { font-family : Arial;background-color: #fff;font-size : 100px;font-weight : bold;}
+
+    div#main{height: 140px;margin-top: 100px;}
+
+  </style>
+</head>
+<body>
+
+<div id="container">
+<center><div id="main"></div></center>
+</div>
+
+  <script type="text/javascript">
+
+
+  (function() {
+  
+          var color_start = 40;
+
+          var color_end = 255;
+
+          var color_step_in = 5;
+
+          var font_start = .1;
+
+          var font_step = 0.025;
+
+          var font,color; 
+
+          var STEP = 40;
+
+          var fiTimer,foTimer;
+
+          var container = document.getElementById('main');;
+
+          var color_step_out = 25;
+
+          var arr = ['welcome','to','the','jungle','baby'];
+
+          var index = 0;
+
+          function init() {
+
+               color = color_start;
+
+               font = font_start; 
+
+               container.style.display = 'none';
+
+               container.style.fontSize = font + 'em';
+
+               container.innerHTML = arr[index];
+
+               container.style.display = '';
+
+               fiTimer = setInterval(fadeIn, STEP);
+
+               if(++index >= arr.length) {index = 0;}
+          }
+    
+
+          function fadeIn() {
+
+               color += color_step_in;
+
+               font = Math.min(1,font+font_step);
+
+               container.style.fontSize = font + 'em';
+
+               container.style.color = 'rgb( ' + color + ' , 0 , 0)';
+
+               if(color > color_end) {
+ 
+                   clearInterval(fiTimer); color = 5;
+
+                   foTimer = setInterval(fadeOut, STEP); 
+               }
+          }
+
+
+          function fadeOut() {
+ 
+              color = color + color_step_out;
+              
+              container.style.color = 'rgb(255,'+ color +','+ color +')';
+
+              if(color == 255) {
+
+                    clearInterval(foTimer);init();
+              }
+          }   
+
+          init(); 
+
+     })();
+
+  </script>
+
+</body>
+</html>
