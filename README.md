@@ -1,1 +1,1 @@
-http://thinkphp.ro
+# http://thinkphp.github.com
