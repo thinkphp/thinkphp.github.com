@@ -1,3 +1,3 @@
-# http://thinkphp.github.com
+# http://thinkphp.github.io
 
 My GitHub Page 
